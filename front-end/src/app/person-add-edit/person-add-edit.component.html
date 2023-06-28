@@ -1,0 +1,49 @@
+<div mat-dialog-title>
+  <h1>Person Form </h1>
+</div>
+
+<form [formGroup]="personForm" (ngSubmit)="onFormSubmit()">
+
+  <div mat-dialog-content class="content">
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Name of Person</mat-label>
+        <input matInput type="text" placeholder="Person" formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email of Person</mat-label>
+        <input matInput type="text" placeholder="Email" formControlName="email" >
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Cpf of Person</mat-label>
+        <input matInput type="text" placeholder="Cpf" formControlName="cpf" [textMask]="{mask: cpfMask}">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password of Person</mat-label>
+        <input matInput type="password" placeholder="Password" formControlName="password">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Phone of Person</mat-label>
+        <input matInput type="text" placeholder="Phone" formControlName="phone" [textMask]="{mask: phoneMask}">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary">{{data ? 'Update' : 'Save' }}</button>
+  </div>
+
+</form>
+
+
